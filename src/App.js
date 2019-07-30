@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 // STYLE
 import "./App.css";
@@ -13,9 +14,17 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Resumo />
-      <Consultas />
-      <Faturamento />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <Switch>
+              <Route exact path="/" component={Resumo} />
+              <Route path="/consultas" component={Consultas} />
+              <Route path="/faturamento" component={Faturamento} />
+            </Switch>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
